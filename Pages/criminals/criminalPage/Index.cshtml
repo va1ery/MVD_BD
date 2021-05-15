@@ -1,0 +1,86 @@
+@page
+@model MVD_BD.Pages.criminals.criminalPage.IndexModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Преступники[0].Фио)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Преступники[0].ДатаРождения)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Преступники[0].Пол)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Преступники[0].Адрес)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Преступники[0].Состояние)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Преступники[0].КодПострадавшего)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Преступники[0].КодВидаПреступленияNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Преступники[0].КодСотрудникаNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Преступники) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Фио)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ДатаРождения)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Пол)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Адрес)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Состояние)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.КодПострадавшего)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.КодВидаПреступленияNavigation.КодВидаПреступления)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.КодСотрудникаNavigation.КодСотрудника)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.НомерДела">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.НомерДела">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.НомерДела">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</body>
+</html>
