@@ -8,6 +8,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MVD_BD.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace MVD_BD
 {
@@ -24,6 +26,10 @@ namespace MVD_BD
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+
+            services.AddDbContext<MVDContext>(options => 
+            options.UseSqlServer("Data Source = (localdb)\\mssqllocaldb; Database = Dblybrary; Trusted_Connection = True; "));
+        
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
